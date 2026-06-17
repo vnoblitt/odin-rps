@@ -10,8 +10,8 @@ function getComputerChoice() {
             return "paper";
             break;
         case 2:
-                    return "scissors";
-                    break;
+            return "scissors";
+            break;
     }
 }
 
@@ -41,6 +41,24 @@ function playRound(humanChoice, computerChoice) {
 
 } 
 
+function generateDialogue(humanChoice, gameWon){
+    dialogue = "";
+    
+    switch (humanChoice){
+        case ("rock"):
+            dialogue += "Rock beats Scissors, ";
+            break;
+        case ("paper"):
+            dialogue += "Paper beats Rock, ";
+            break;
+        case ("scissors"):
+            dialogue += "Scissors beats Paper, ";
+            break;
+    }
+    gameWon ? dialogue += "you win!" : dialogue += "you lose...";
+    return dialogue;
+}
+
 function playGame() {
     let humanScore= 0;
     let computerScore = 0;
@@ -58,11 +76,11 @@ function playGame() {
                 ties += 1;
                 break;
             case ("computer"):
-                console.log("You lose...");
+                console.log(generateDialogue(getHumanChoice,false));
                 computerScore += 1;
                 break;
             case ("human"):
-                console.log("You win!");
+                console.log(generateDialogue(getHumanChoice,true));
                 humanScore += 1;
                 break;
         }
