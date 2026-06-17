@@ -21,7 +21,7 @@ function getHumanChoice() {
     return choice;
 }
 
-function checkChoice(humanChoice, computerChoice) {
+function playRound(humanChoice, computerChoice) {
     /*if (humanChoice != "rock" && humanChoice != "paper" && humanChoice != "scissors") {
         console.log("Only choose rock, paper, or scissors");
         return checkChoice(getHumanChoice(), computerChoice);
@@ -41,31 +41,35 @@ function checkChoice(humanChoice, computerChoice) {
 
 } 
 
-let wins = 0;
-let losses = 0;
-let ties = 0;
-let games = 0;
+function playGame() {
+    let humanScore= 0;
+    let computerScore = 0;
+    let ties = 0;
+    let games = 0;
 
-while(games < 5) {
-    let computerChoice = getComputerChoice();
-    let humanChoice = getHumanChoice();
-    let results = checkChoice(humanChoice, computerChoice)
+    while(games < 5) {
+        let computerChoice = getComputerChoice();
+        let humanChoice = getHumanChoice();
+        let results = playRound(humanChoice, computerChoice);
 
-    switch (results) {
-        case ("tie"):
-            console.log("Tie game.");
-            ties += 1;
-            break;
-        case ("computer"):
-            console.log("You lose...");
-            losses += 1;
-            break;
-        case ("human"):
-            console.log("You win!");
-            wins += 1;
-            break;
+        switch (results) {
+            case ("tie"):
+                console.log("Tie game.");
+                ties += 1;
+                break;
+            case ("computer"):
+                console.log("You lose...");
+                computerScore += 1;
+                break;
+            case ("human"):
+                console.log("You win!");
+                humanScore += 1;
+                break;
+        }
+
+        games += 1;
+        console.log(`The score is: ${humanScore} - ${computerScore} - ${ties}`)
     }
-
-    games += 1;
-    console.log(`The score is: ${wins} - ${losses} - ${ties}`)
 }
+
+playGame();
