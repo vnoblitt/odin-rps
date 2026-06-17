@@ -1,4 +1,4 @@
-/* Rock Paper Scissors */
+        /* Rock Paper Scissors */
         
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
@@ -41,10 +41,9 @@ function playRound(humanChoice, computerChoice) {
 
 } 
 
-function generateDialogue(humanChoice, gameWon){
+function generateDialogue(winningChoice, gameWon){
     let dialogue = "";
-    console.log(humanChoice);
-    switch (humanChoice){
+    switch (winningChoice){
         case ("rock"):
             dialogue += "Rock beats Scissors, ";
             break;
@@ -76,11 +75,11 @@ function playGame() {
                 ties += 1;
                 break;
             case ("computer"):
-                console.log(generateDialogue(getHumanChoice,false));
+                console.log(generateDialogue(computerChoice, false));
                 computerScore += 1;
                 break;
             case ("human"):
-                console.log(generateDialogue(getHumanChoice,true));
+                console.log(generateDialogue(humanChoice, true));
                 humanScore += 1;
                 break;
         }
@@ -91,3 +90,6 @@ function playGame() {
 }
 
 playGame();
+
+
+   
