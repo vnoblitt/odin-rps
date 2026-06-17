@@ -43,7 +43,7 @@ function playRound(humanChoice, computerChoice) {
 
 function generateDialogue(humanChoice, gameWon){
     let dialogue = "";
-    
+    console.log(humanChoice);
     switch (humanChoice){
         case ("rock"):
             dialogue += "Rock beats Scissors, ";
