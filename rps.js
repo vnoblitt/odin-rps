@@ -42,7 +42,7 @@ function playRound(humanChoice, computerChoice) {
 } 
 
 function generateDialogue(humanChoice, gameWon){
-    dialogue = "";
+    let dialogue = "";
     
     switch (humanChoice){
         case ("rock"):
